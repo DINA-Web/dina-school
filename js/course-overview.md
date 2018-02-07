@@ -3,9 +3,9 @@
 Below folow a draft of coure schedule. It will likeli change as we go
 
 1. Hello world
-  - Installing npm
-  - Installing node (node v4) through npm
-  - Initializing a node project
+  - Installing nvm
+  - Installing node (node v4) through nvm
+  - Initializing a node project with npm
   - Running node files
   - Installing a node module (express) and setting up simple server
   - Implement a hello world GET endpoint
