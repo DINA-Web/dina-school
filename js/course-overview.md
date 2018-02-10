@@ -12,6 +12,7 @@ Below folow a draft of coure schedule. It will likeli change as we go
 
 2. Datatypes and es6 introduction
   - Es6 introduction
+  - Nodemon
   - Installing node (node v8) through npm
   - Declaration of variables
   - Strings
