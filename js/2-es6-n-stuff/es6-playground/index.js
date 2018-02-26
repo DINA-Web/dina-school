@@ -1,15 +1,15 @@
 // before es6 all variables where declared with the keyword var like
 var a = 1
 
-console.log('Im a variable declared with var keyword: ', a)
+console.log('I am a variable declared with var keyword: ', a)
 
 // In es6 instead we use const and let
 const b = 2
 
 let c = 3
 c = 4
-console.log('Im a variable declared with const keyword: ', b)
-console.log('Im a variable declared with let keyword: ', c)
+console.log('I am a variable declared with const keyword: ', b)
+console.log('I am a variable declared with let keyword: ', c)
 
 /*
 const is the most common way to declare variables and will throw an error 
@@ -39,7 +39,7 @@ const falseBooelan = true
 const nullValue = null
 const notDefined = undefined
 function firstFunction() {
-  console.log('Im a function declared using the function keyword')
+  console.log('I am a function declared using the function keyword')
 }
 
 const secondFunction = () => {
