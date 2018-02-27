@@ -1,5 +1,5 @@
 const debug = require('debug')
-const JsonDb = require('../../JsonDb')
+const dbOperations = require('../../mockJsonDb')
 
 const log = debug('DINA-SCHOOL:server:routeHandlers:todos:create')
 
@@ -10,7 +10,8 @@ module.exports = (req, res) => {
     done: false,
   }
 
-  return JsonDb.set(undefined, input)
+  return dbOperations
+    .set(undefined, input)
     .then(createdTodo => {
       log('Done create', createdTodo)
       res.send(createdTodo)

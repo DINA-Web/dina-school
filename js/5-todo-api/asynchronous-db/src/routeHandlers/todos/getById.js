@@ -1,6 +1,6 @@
 const debug = require('debug')
 
-const JsonDb = require('../../JsonDb')
+const dbOperations = require('../../mockJsonDb')
 
 const log = debug('DINA-SCHOOL:server:routeHandlers:todos:getById')
 
@@ -8,7 +8,8 @@ module.exports = (req, res) => {
   const { id } = req.params
   log('Start get', id)
 
-  return JsonDb.getById(id)
+  return dbOperations
+    .getById(id)
     .then(todo => {
       log('Done getById', todo)
       res.send(todo)

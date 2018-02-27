@@ -1,6 +1,6 @@
 const debug = require('debug')
 
-const JsonDb = require('../../JsonDb')
+const dbOperations = require('../../mockJsonDb')
 
 const log = debug('DINA-SCHOOL:server:routeHandlers:todos:del')
 
@@ -8,7 +8,8 @@ module.exports = (req, res) => {
   const { id } = req.params
   log('Start remove', id)
 
-  return JsonDb.del(id)
+  return dbOperations
+    .del(id)
     .then(todo => {
       log('Done del', todo)
       res.send(todo)
