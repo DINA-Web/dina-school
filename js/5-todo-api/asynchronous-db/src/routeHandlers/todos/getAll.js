@@ -1,12 +1,13 @@
 const debug = require('debug')
 
-const JsonDb = require('../../JsonDb')
+const dbOperations = require('../../mockJsonDb')
 
 const log = debug('DINA-SCHOOL:server:routeHandlers:todos:getAll')
 
 module.exports = (req, res) => {
   log('Start get all')
-  return JsonDb.getAll()
+  return dbOperations
+    .getAll()
     .then(todos => {
       log('Done getAll', todos)
       res.send(todos)

@@ -1,6 +1,6 @@
 const debug = require('debug')
 
-const JsonDb = require('../../JsonDb')
+const dbOperations = require('../../mockJsonDb')
 
 const log = debug('DINA-SCHOOL:server:routeHandlers:todos:updatePartialEntry')
 
@@ -13,7 +13,8 @@ module.exports = (req, res) => {
     id,
   }
 
-  return JsonDb.getById(id)
+  return dbOperations
+    .getById(id)
     .then(todo => {
       log('Fetched todo', todo)
       const patchedTodo = {
@@ -21,7 +22,8 @@ module.exports = (req, res) => {
         ...input,
       }
       log('Patched todo', patchedTodo)
-      return JsonDb.set(id, patchedTodo).then(updatedTodo => {
+
+      return dbOperations.set(id, patchedTodo).then(updatedTodo => {
         log('Done update', updatedTodo)
         res.send(updatedTodo)
       })
