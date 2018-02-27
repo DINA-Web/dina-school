@@ -5,8 +5,8 @@ const log = debug('DINA-SCHOOL:server:middlewares:logRequest')
 let requestId = 0
 
 module.exports = (req, res, next) => {
-  res.locals.id = requestId
   requestId += 1
+  res.locals.id = requestId
 
   log(
     `${res.locals.id}: Received request ${req.method} - ${req.url} from ${
