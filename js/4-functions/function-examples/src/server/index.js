@@ -51,6 +51,25 @@ log('this.value after hasOuterScopeThis:', this.value) // should be false
 
 log = debug('DINA-SCHOOL:async functions callbacks')
 
+const randomizer = multiplier => {
+  const value = Math.random() * multiplier
+  log('randomizer value', value)
+}
+const randomizerWithCallback = (multiplier, callback) => {
+  setTimeout(() => {
+    const value = Math.random() * multiplier
+    callback(value)
+  }, 100)
+}
+log('calling randomizer without callback')
+randomizer(10)
+log('calling randomizerWithCallback')
+randomizerWithCallback(10, res => {
+  const tempLog = debug('DINA-SCHOOL:async functions callbacks')
+  tempLog('randomizerWithCallback res', res)
+})
+log('after calling randomizerWithCallback')
+
 // readFileSync is a blocking method, the code execution will stay here until
 // the file has been read
 log('Start readFileSync')
