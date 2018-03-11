@@ -57,7 +57,7 @@ Note that package.json is updated with express as a dependency and a node_module
 Create a git ignore and add node_modules.
 
 ## Create simple web-app
-Create a file called index.js. And follow commets in [index.js](index.js)
+Create a file called index.js. And follow commets in [index.js](https://github.com/DINA-Web/dina-school/blob/master/js/1-hello-world/simple-server/index.js)
 
 To run:
 	```
