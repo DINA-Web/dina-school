@@ -126,7 +126,7 @@ Express has great [API reference](https://expressjs.com/en/4x/api.html), [Gettin
 
 For a convenient development experience, we suggest using the free [Postman](https://www.getpostman.com/) desktop application to make requests to your server on localhost. In the Postman app you can save requests in a collection, so that you can quickly make all the requests you want during development.
 
-##### Create basic routes
+#### Create basic routes
 
 Start by going through the following sections of "Getting started" (hover over the header in the menu to see links to the sections) in this order:
 
@@ -141,12 +141,12 @@ Then build an app that has those endpoints for CRUD (create, read, update, delet
 
 To start with, you can use a plain JavaScript object, declared in the global scope of your server code, as your "database". If you want debugging support, you can look into the built-in [logging](https://expressjs.com/en/guide/debugging.html) that Express has.
 
-##### Add middlewares
+#### Add middlewares
 
 1.  Follow the [Writing middleware](https://expressjs.com/en/guide/writing-middleware.html) guide and implement the logging and request time middlewares that they go through on your Todo server.
 2.  Learn more about middlewares by reading the [Using middleware](https://expressjs.com/en/guide/using-middleware.html) guide.
 3.  Read about [error handling in Express](https://expressjs.com/en/guide/error-handling.html) and add error handling middleware(s) to your Todo server.
 
-##### Read/write JSON-files (optional)
+#### Read/write JSON-files (optional)
 
 If you want to load your API with initial data and also be able to save the data at some point (e.g. you can add a middleware that writes the date after each request, or when making a POST request to a specific endpoint), you can read this guide to using Node's `fs` module for [reading and writing files](http://stackabuse.com/reading-and-writing-json-files-with-node-js/). You will want to use `readFileSync` to synchronously load the data before the server starts to listen and probably want to use the asynchronous `writeFile` to write to the file without blocking further operations.
