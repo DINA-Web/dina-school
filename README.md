@@ -83,15 +83,15 @@ The other remaining chapters in Eloquent JavaScript are optional reading and mos
 
 Learning resources and task specifications are yet to be determined. However, here is an initial idea of tasks:
 
-* **Node & Express**: Write a Todo API with mock database
-* **React & JSX**: Build a bare-bones UI
-* **Sequelize**: Refactor API to use a real database
-* **Redux**: Centralize frontend state management
-* **Semantic UI**: Rebuild the UI with Semantic components
+1.  **Node & Express**: Write a Todo API with mock database
+2.  **React & JSX**: Build a bare-bones UI
+3.  **Sequelize**: Refactor API to use a real database
+4.  **Redux**: Centralize frontend state management
+5.  **Semantic UI**: Rebuild the UI with Semantic components
 
 The purpose is for the new developer to get familiar with the main technologies used in DINA-Collections by working with them.
 
-### Node & Express: Write a Todo API with mock database
+### 1. Node & Express: Write a Todo API with mock database
 
 #### Node
 
@@ -128,11 +128,21 @@ For a convenient development experience, we suggest using the free [Postman](htt
 
 #### Create basic routes
 
-Start by going through the following sections of "Getting started" (hover over the header in the menu to see links to the sections) in this order:
+To learn about Express routes, you can look at Codecademy and/or the official Express guide.
+
+##### Codecademy
+
+Do the [Express routes](https://www.codecademy.com/learn/learn-express) lesson on Codecademy.
+
+##### Official Express guide
+
+Go through the following sections of "Getting started" (hover over the header in the menu to see links to the sections) in this order:
 
 1.  [Hello world](https://expressjs.com/en/starter/hello-world.html): Play around with this, you can change the code in the browser and try it through the URL they provide.
 2.  [Installing](https://expressjs.com/en/starter/installing.html): You can follow their instructions or copy [this folder](https://github.com/DINA-Web/dina-school/tree/master/js/3-lint-and-test/finished-example) from the repo and use as starting point.
 3.  [Basic routing](https://expressjs.com/en/starter/basic-routing.html): Learn the basics of routing with Express. Read more in the [Routing guide](https://expressjs.com/en/guide/routing.html) and the API reference as needed.
+
+##### Task
 
 Then build an app that has those endpoints for CRUD (create, read, update, delete) of todos:
 
@@ -143,10 +153,20 @@ To start with, you can use a plain JavaScript object, declared in the global sco
 
 #### Add middlewares
 
-1.  Follow the [Writing middleware](https://expressjs.com/en/guide/writing-middleware.html) guide and implement the logging and request time middlewares that they go through on your Todo server.
+##### Codecademy
+
+Do the [Express middleware](https://www.codecademy.com/learn/learn-express) lesson on Codecademy.
+
+##### Official Express guide
+
+1.  Follow the [Writing middleware](https://expressjs.com/en/guide/writing-middleware.html) guide and .
 2.  Learn more about middlewares by reading the [Using middleware](https://expressjs.com/en/guide/using-middleware.html) guide.
-3.  Read about [error handling in Express](https://expressjs.com/en/guide/error-handling.html) and add error handling middleware(s) to your Todo server.
+3.  Read about [error handling in Express](https://expressjs.com/en/guide/error-handling.html).
+
+##### Task
+
+Implement request logging, request time and error handling middlewares on your Todo server (as described in the official guide step 1 and 3 above).
 
 #### Read/write JSON-files (optional)
 
-If you want to load your API with initial data and also be able to save the data at some point (e.g. you can add a middleware that writes the date after each request, or when making a POST request to a specific endpoint), you can read this guide to using Node's `fs` module for [reading and writing files](http://stackabuse.com/reading-and-writing-json-files-with-node-js/). You will want to use `readFileSync` to synchronously load the data before the server starts to listen and probably want to use the asynchronous `writeFile` to write to the file without blocking further operations.
+If you want to load your API with initial data and also be able to save the data at some point (e.g. you can add a middleware that writes the date after each request, or when making a POST request to a specific endpoint), you can read [this guide](<(http://stackabuse.com/reading-and-writing-json-files-with-node-js/)>) to using [Node's `fs` module](https://nodejs.org/docs/latest-v8.x/api/fs.html) for reading and writing files. You will want to use `readFileSync` to synchronously load the data before the server starts to listen and probably want to use the asynchronous `writeFile` to write to the file without blocking further operations.
