@@ -90,3 +90,63 @@ Learning resources and task specifications are yet to be determined. However, he
 * **Semantic UI**: Rebuild the UI with Semantic components
 
 The purpose is for the new developer to get familiar with the main technologies used in DINA-Collections by working with them.
+
+### Node & Express: Write a Todo API with mock database
+
+#### Node
+
+Node is used to run the server and at this point that is all you need to know about Node.
+
+We recommend using `nvm` to install and manage Node versions:
+
+1.  [Install nvm](https://github.com/creationix/nvm#installation)
+2.  Install Node.js version 8.9.1
+
+```
+nvm install 8.9.1
+```
+
+3.  Set Node v8.9.1 as default
+
+```
+nvm alias default v8.9.1
+```
+
+8.9.1 was the long-term stable (LTS) release of Node at the time when development of [DINA-Collections](https://github.com/DINA-Web/dina-collections) started. With `nvm` it is easy to change which version you run.
+
+#### Express
+
+What is [Express](https://expressjs.com)? This is what they say:
+
+> Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. With a myriad of HTTP utility methods and middleware at your disposal, creating a robust API is quick and easy. Express provides a thin layer of fundamental web application features, without obscuring Node.js features that you know and love.
+
+Express has great [API reference](https://expressjs.com/en/4x/api.html), [Getting started](https://expressjs.com/en/starter/installing.html) and [Guide](https://expressjs.com/en/guide/routing.html) sections. Below is how we suggest to combine reading with coding.
+
+#### Postman
+
+For a convenient development experience, we suggest using the free [Postman](https://www.getpostman.com/) desktop application to make requests to your server on localhost. In the Postman app you can save requests in a collection, so that you can quickly make all the requests you want during development.
+
+##### Create basic routes
+
+Start by going through the following sections of "Getting started" (hover over the header in the menu to see links to the sections) in this order:
+
+1.  [Hello world](https://expressjs.com/en/starter/hello-world.html): Play around with this, you can change the code in the browser and try it through the URL they provide.
+2.  [Installing](https://expressjs.com/en/starter/installing.html): You can follow their instructions or copy [this folder](https://github.com/DINA-Web/dina-school/tree/master/js/3-lint-and-test/finished-example) from the repo and use as starting point.
+3.  [Basic routing](https://expressjs.com/en/starter/basic-routing.html): Learn the basics of routing with Express. Read more in the [Routing guide](https://expressjs.com/en/guide/routing.html) and the API reference as needed.
+
+Then build an app that has those endpoints for CRUD (create, read, update, delete) of todos:
+
+* `/todos`: GET, POST (create new todo, read all todos)
+* `/todos/:id`: GET, PATCH, PUT, DEL (get todo, patch todo, update todo, delete todo)
+
+To start with, you can use a plain JavaScript object, declared in the global scope of your server code, as your "database". If you want debugging support, you can look into the built-in [logging](https://expressjs.com/en/guide/debugging.html) that Express has.
+
+##### Add middlewares
+
+1.  Follow the [Writing middleware](https://expressjs.com/en/guide/writing-middleware.html) guide and implement the logging and request time middlewares that they go through on your Todo server.
+2.  Learn more about middlewares by reading the [Using middleware](https://expressjs.com/en/guide/using-middleware.html) guide.
+3.  Read about [error handling in Express](https://expressjs.com/en/guide/error-handling.html) and add error handling middleware(s) to your Todo server.
+
+##### Read/write JSON-files (optional)
+
+If you want to load your API with initial data and also be able to save the data at some point (e.g. you can add a middleware that writes the date after each request, or when making a POST request to a specific endpoint), you can read this guide to using Node's `fs` module for [reading and writing files](http://stackabuse.com/reading-and-writing-json-files-with-node-js/). You will want to use `readFileSync` to synchronously load the data before the server starts to listen and probably want to use the asynchronous `writeFile` to write to the file without blocking further operations.
