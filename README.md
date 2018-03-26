@@ -149,10 +149,11 @@ Do the [Express routes](https://www.codecademy.com/learn/learn-express) lesson o
 Go through the following sections of "Getting started" (hover over the header in the menu to see links to the sections) in this order:
 
 1.  [Hello world](https://expressjs.com/en/starter/hello-world.html): Play around with this, you can change the code in the browser and try it through the URL they provide.
-2.  [Installing](https://expressjs.com/en/starter/installing.html): You can follow their instructions or copy [this folder](https://github.com/DINA-Web/dina-school/tree/master/js/3-lint-and-test/finished-example) from the repo and use as starting point.
-3.  [Basic routing](https://expressjs.com/en/starter/basic-routing.html): Learn the basics of routing with Express. Read more in the [Routing guide](https://expressjs.com/en/guide/routing.html) and the API reference as needed.
+2.  [Basic routing](https://expressjs.com/en/starter/basic-routing.html): Learn the basics of routing with Express. Read more in the [Routing guide](https://expressjs.com/en/guide/routing.html) and the API reference as needed.
 
 ##### Task
+
+First copy [this folder](https://github.com/DINA-Web/dina-school/tree/master/js/3-lint-and-test/finished-example) from the repo and use it as starting point. Look in `package.json` to see the available scripts (and you can refer to [this README](https://github.com/DINA-Web/dina-school/blob/master/js/3-lint-and-test/start-here/README.md), if you want to know more about ESLint and Prettier. Also refer to the [editor setup](#editor-setup) section as needed.
 
 Then build an app that has those endpoints for CRUD (create, read, update, delete) of todos:
 
