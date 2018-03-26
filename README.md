@@ -12,6 +12,16 @@ If you want to see "the docs" of JavaScript, Mozilla's [MDN](https://developer.m
 
 Later, we intend to extend this with problem-based learning (PBL) tasks, where the developer will gradually learn about the fundamental technologies used in [DINA-Collections](https://github.com/DINA-Web/dina-collections), through building (and continuously refactoring) a todo-list application.
 
+## Editor setup
+
+Before diving into learning, here are some links that may be useful when you want to configure your editor.
+
+* [Syntax highlighting](http://babeljs.io/docs/editors)
+* [ESLint editor setup](https://eslint.org/docs/user-guide/integrations)
+* [Prettier editor setup](https://prettier.io/docs/en/editors.html)
+
+If you want to try a new theme, [@fredrikolovsson](https://github.com/fredrikolovsson) recommends [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme).
+
 ## Learn JavaScript
 
 For Codecademy, we will use the ["Introduction to JavaScript"](https://www.codecademy.com/learn/introduction-to-javascript) class and for freeCodeCamp we will cherry-pick exercises that you can find by clicking on ["Map"](https://www.freecodecamp.org/map) in the nav bar.
