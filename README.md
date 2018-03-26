@@ -181,3 +181,54 @@ Implement request logging, request time and error handling middlewares on your T
 #### Read/write JSON-files (optional)
 
 If you want to load your API with initial data and also be able to save the data at some point (e.g. you can add a middleware that writes the date after each request, or when making a POST request to a specific endpoint), you can read [this guide](<(http://stackabuse.com/reading-and-writing-json-files-with-node-js/)>) to using [Node's `fs` module](https://nodejs.org/docs/latest-v8.x/api/fs.html) for reading and writing files. You will want to use `readFileSync` to synchronously load the data before the server starts to listen and probably want to use the asynchronous `writeFile` to write to the file without blocking further operations.
+
+### 2. React & JSX: Build a bare-bones UI
+
+This task is centered around React and will let you build your first UI and connect it to the API built in the previous task.
+
+#### React
+
+> A JavaScript library for building user interfaces
+
+As seen by the tagline, React has now become so big they chose to simply state a fact instead of promoting the features, but you can check out the [official website](https://reactjs.org/) if you want to read more. [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) is a nice article that explains what it means to work with (and think in) React.
+
+JSX is introduced in the first Codecademy lesson, but you can also read about it in the [React docs](https://reactjs.org/docs/introducing-jsx.html).
+
+##### Codecademy
+
+Do the [Learn ReactJS: Part I](https://www.codecademy.com/learn/react-101) and [Learn ReactJS: Part II](https://www.codecademy.com/learn/react-102) lessons on Codecademy.
+
+##### Official React tutorial
+
+Do the [tutorial](https://reactjs.org/tutorial/tutorial.html) that guides you through building a tic-tac-toe game.
+
+##### Other resources
+
+Egghead has two video courses for beginners (in alphabetical order):
+
+* [Start Learning React](https://egghead.io/courses/start-learning-react)
+* [The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
+
+You can watch all of the lessons or look at the lesson titles and cherry-pick what you want/need.
+
+##### Get started with "Create React App"
+
+If you did the React tutorial you already installed [Create React App](https://github.com/facebook/create-react-app), now use it to create a new app for this task. (**Note:** The Todo API that you built in the previous task and the React app cannot run on the same localhost port. The easiest might be to change the port in the Todo API, e.g. to 4444.)
+
+#### Fetch
+
+> The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.
+
+Read about [using fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) to make HTTP requests. You will need this to communicate with your Todo API.
+
+#### Task
+
+Build a UI that lets the user:
+
+* Create todos
+* View a list of all todos (optionally with some categories, e.g. "all", "finished" and "unfinished")
+* Mark a todo as finished
+* Edit the text of a todo item
+* Remove a todo
+
+This should use the API you built in the previous PBL task.
