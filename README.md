@@ -232,3 +232,29 @@ Build a UI that lets the user:
 * Remove a todo
 
 This should use the API you built in the previous PBL task.
+
+### 3. Sequelize: Rewrite Todo API to use a real database
+
+This task requires you to install postgres and learn Sequelize so you can wire up your Todo API to a database and persist the data.
+
+#### Install postgres
+
+HOW TO INSTALL POSTGRES AND CREATE/FIND A DB
+
+#### Sequelize
+
+> Sequelize is a promise-based ORM for Node.js v4 and up. It supports the dialects PostgreSQL, MySQL, SQLite and MSSQL and features solid transaction support, relations, read replication and more.
+
+We use [Sequelize](http://docs.sequelizejs.com/) for SOMETHINGSOMETHINGSOMETHINGSOMETHING. Go to the [Getting started](http://docs.sequelizejs.com/manual/installation/getting-started) section and go through that.
+
+You can also read this [article](https://sequelize.readthedocs.io/en/1.7.0/articles/express/), with related [source code](https://github.com/sequelize/express-example), about making a todo app with Sequelize and Express.
+
+Then refer to the docs as necessary to complete the task.
+
+#### Task
+
+1.  Add a User model that can have many todos.
+2.  Add a Todo model that belongs to a User.
+3.  Rewrite the Todo API so it persists todos in the database.
+4.  Load some initial data (users and todos) in the database.
+5.  Adapt the UI so it can show all users and all tasks and also filter tasks by user.
