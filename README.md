@@ -238,8 +238,15 @@ This should use the API you built in the previous PBL task.
 This task requires you to install postgres and learn Sequelize so you can wire up your Todo API to a database and persist the data.
 
 #### Install postgres
+You are free to install postgres the way you want. An easy way is to use the dina-collections repo:
 
-HOW TO INSTALL POSTGRES AND CREATE/FIND A DB
+Clone [Dina](https://github.com/DINA-Web/dina-collections) and run: 
+
+```make setup-env```  
+
+```docker-compose -f docker-compose.dev.yaml up -d postgres```
+
+This will start postgres in a container with default port (5432) exposed with settings (user and password) as specified in ./env/.postgres. This file will be created by running the setup-env command and you should be fine with the default settings. 
 
 #### Sequelize
 
