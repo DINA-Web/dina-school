@@ -313,3 +313,22 @@ Adding `redux-logger` is a nice start.
 2.  Add filtering of todos, e.g. based on their status of being done or not done and/or which user they belong to.
 3.  Add simple search, e.g. have an input where the user can type and filter todos based on simple string matching of the todo title.
 4.  Add a view where you show all the information about one specific todo. Then verify that when you go between the list view and the view of a specific todo, that any filtering and search inputs stay the same.
+
+### 5. Semantic UI: Make the UI look better with Semantic UI React
+
+> Semantic is a development framework that helps create beautiful, responsive layouts using human-friendly HTML.
+> Semantic UI React is the official React integration for Semantic UI.
+
+[Semantic UI React](https://react.semantic-ui.com) offers a set of UI components that makes it quick and easy to build a UI with a decent look without writing any CSS. For more advanced usage, it also enables to customise the theme (e.g. color variables) and to make as detailed styling overrides as necessary to achieve what you want.
+
+#### Installation
+
+Read here how to install it in your project: https://react.semantic-ui.com/usage
+
+#### Documentation
+
+Then browse through the available components in the [documentation](https://react.semantic-ui.com).
+
+#### Task
+
+Rewrite your Todo app UI with Semantic UI components. At least use and configure (with props) the Grid, Header, Dropdown, Input, List and Button components.
