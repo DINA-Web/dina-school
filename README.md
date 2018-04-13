@@ -252,7 +252,7 @@ This will start postgres in a container with default port (5432) exposed with se
 
 > Sequelize is a promise-based ORM for Node.js v4 and up. It supports the dialects PostgreSQL, MySQL, SQLite and MSSQL and features solid transaction support, relations, read replication and more.
 
-We use [Sequelize](http://docs.sequelizejs.com/) for SOMETHINGSOMETHINGSOMETHINGSOMETHING. Go to the [Getting started](http://docs.sequelizejs.com/manual/installation/getting-started) section and go through that.
+We use the ORM [Sequelize](http://docs.sequelizejs.com/) for accessing posgres. Go to the [Getting started](http://docs.sequelizejs.com/manual/installation/getting-started) section and go through that.
 
 You can also read this [article](https://sequelize.readthedocs.io/en/1.7.0/articles/express/), with related [source code](https://github.com/sequelize/express-example), about making a todo app with Sequelize and Express.
 
