@@ -238,21 +238,22 @@ This should use the API you built in the previous PBL task.
 This task requires you to install postgres and learn Sequelize so you can wire up your Todo API to a database and persist the data.
 
 #### Install postgres
-You are free to install postgres the way you want. An easy way is to use the dina-collections repo:
 
-Clone [Dina](https://github.com/DINA-Web/dina-collections) and run: 
+You are free to install postgres the way you want. An easy way is to use the DINA-Collections repo:
 
-```make setup-env```  
+Clone [DINA-Collections](https://github.com/DINA-Web/dina-collections) and run:
 
-```docker-compose -f docker-compose.dev.yaml up -d postgres```
+`make setup-env`
 
-This will start postgres in a container with default port (5432) exposed with settings (user and password) as specified in ./env/.postgres. This file will be created by running the setup-env command and you should be fine with the default settings. 
+`docker-compose -f docker-compose.dev.yaml up -d postgres`
+
+This will start postgres in a container with default port (5432) exposed with settings (user and password) as specified in ./env/.postgres. This file will be created by running the setup-env command and you should be fine with the default settings.
 
 #### Sequelize
 
 > Sequelize is a promise-based ORM for Node.js v4 and up. It supports the dialects PostgreSQL, MySQL, SQLite and MSSQL and features solid transaction support, relations, read replication and more.
 
-We use the ORM [Sequelize](http://docs.sequelizejs.com/) for accessing posgres. Go to the [Getting started](http://docs.sequelizejs.com/manual/installation/getting-started) section and go through that.
+We use the ORM [Sequelize](http://docs.sequelizejs.com/) for accessing postgres. Go to the [Getting started](http://docs.sequelizejs.com/manual/installation/getting-started) section and go through that.
 
 You can also read this [article](https://sequelize.readthedocs.io/en/1.7.0/articles/express/), with related [source code](https://github.com/sequelize/express-example), about making a todo app with Sequelize and Express.
 
