@@ -211,6 +211,10 @@ Egghead has two video courses for beginners (in alphabetical order):
 
 You can watch all of the lessons or look at the lesson titles and cherry-pick what you want/need.
 
+##### React style guide
+
+We follow most of Airbnb's style guide for [JavaScript](https://github.com/airbnb/javascript), which also covers [React and JSX](https://github.com/airbnb/javascript/tree/master/react). This also includes configuration for ESLint so you will get lint errors or warnings if your code does not adhere to the style guide. Please use the [ESLint config file](https://github.com/DINA-Web/dina-collections/blob/master/packages/ui/.eslintrc) from the DINA-Collections repo and install the [devDependencies](https://github.com/DINA-Web/dina-collections/blob/master/packages/ui/package.json) related to `eslint`.
+
 ##### Get started with "Create React App"
 
 If you did the React tutorial you already installed [Create React App](https://github.com/facebook/create-react-app), now use it to create a new app for this task. (**Note:** The Todo API that you built in the previous task and the React app cannot run on the same localhost port. The easiest might be to change the port in the Todo API, e.g. to 4444.)
