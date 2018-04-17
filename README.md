@@ -266,3 +266,69 @@ Then refer to the docs as necessary to complete the task.
 3.  Rewrite the Todo API so it persists todos in the database.
 4.  Load some initial data (users and todos) in the database.
 5.  Adapt the UI so it can show all users and all tasks and also filter tasks by user.
+
+### 4. Redux: Centralize frontend state management
+
+> Redux is a predictable state container for JavaScript apps.
+
+This task is about learning how to work with [Redux](https://redux.js.org/), which is a library we use to manage the centralized state in the frontend. React has built-in support for local state in components, but sometimes we want to have a central state that is accessible across components and that is what we use Redux for. Redux also has nice devtools that improves the developer and debugging experience.
+
+#### Introduction
+
+Before diving into learning the nitty-gritty, first read about the motivation, core concepts and three principles of Redux in the official [Introduction](https://redux.js.org/introduction). And then, to balance the excitement, read the article [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367), written by the creator of Redux after people started using it without first considering if they really need it.
+
+#### Learn the basics
+
+The [Learn Redux](https://redux.js.org/#learn-redux) section in the docs has a list of great resources. We recommend reading and watching at least those two:
+
+1.  [Official basic walkthrough](https://redux.js.org/basics)
+2.  [Getting started with Redux](https://egghead.io/courses/getting-started-with-redux) free video series by the creator of Redux
+
+Then check out any other resources you want or move on to the next part.
+
+#### Advanced usage
+
+Advanced usage includes handling asynchronous actions (e.g. to make API calls) and middleware, to handle side-effects of actions (e.g. logging actions or saving to localStorage).
+
+1.  [Offical advanced walkthrough](https://redux.js.org/advanced)
+2.  [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) video series
+3.  [Flux Standard Action](https://github.com/redux-utilities/flux-standard-action), which is a convention we follow for the action objects.
+4.  [Reselect](https://github.com/reactjs/reselect), a library for memoization of expensive state selectors.
+
+You can also check out more of the resources listed in the docs.
+
+#### Devtools
+
+Before jumping into development, you might want to look at those:
+
+* [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+* [redux-devtools](https://github.com/evgenyrodionov/redux-logger)
+* [redux-devtools extension](https://github.com/zalmoxisus/redux-devtools-extension)
+
+Adding `redux-logger` is a nice start.
+
+#### Task
+
+1.  Rewrite your Todo application to use Redux to manage CRUD of todos. This includes adding actions, reducers, selectors, a thunk middleware (e.g. `redux-thunk`), perhaps `redux-logger`, and connecting your components to the state with `react-redux`.
+2.  Add filtering of todos, e.g. based on their status of being done or not done and/or which user they belong to.
+3.  Add simple search, e.g. have an input where the user can type and filter todos based on simple string matching of the todo title.
+4.  Add a view where you show all the information about one specific todo. Then verify that when you go between the list view and the view of a specific todo, that any filtering and search inputs stay the same.
+
+### 5. Semantic UI: Make the UI look better with Semantic UI React
+
+> Semantic is a development framework that helps create beautiful, responsive layouts using human-friendly HTML.
+> Semantic UI React is the official React integration for Semantic UI.
+
+[Semantic UI React](https://react.semantic-ui.com) offers a set of UI components that makes it quick and easy to build a UI with a decent look without writing any CSS. For more advanced usage, it also enables to customise the theme (e.g. color variables) and to make as detailed styling overrides as necessary to achieve what you want.
+
+#### Installation
+
+Read here how to install it in your project: https://react.semantic-ui.com/usage
+
+#### Documentation
+
+Then browse through the available components in the [documentation](https://react.semantic-ui.com).
+
+#### Task
+
+Rewrite your Todo app UI with Semantic UI components. At least use and configure (with props) the Grid, Header, Dropdown, Input, List and Button components.
