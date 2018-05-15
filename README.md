@@ -311,12 +311,21 @@ Before jumping into development, you might want to look at those:
 
 Adding `redux-logger` is a nice start.
 
+#### redux-form
+
+In DINA-Collections we use the library [`redux-form`](https://redux-form.com/) to make it easier to get advanced form features (e.g. validation, error messages and managing form states).
+
+* Watch this video series: [manage-react-form-state-with-redux-form](https://egghead.io/courses/manage-react-form-state-with-redux-form)
+
+Since forms are a core part of DINA, it is great to learn more about that library.
+
 #### Task
 
 1.  Rewrite your Todo application to use Redux to manage CRUD of todos. This includes adding actions, reducers, selectors, a thunk middleware (e.g. `redux-thunk`), perhaps `redux-logger`, and connecting your components to the state with `react-redux`.
 2.  Add filtering of todos, e.g. based on their status of being done or not done and/or which user they belong to.
 3.  Add simple search, e.g. have an input where the user can type and filter todos based on simple string matching of the todo title.
 4.  Add a view where you show all the information about one specific todo. Then verify that when you go between the list view and the view of a specific todo, that any filtering and search inputs stay the same.
+5. Rewrite all forms with `redux-form` and add buttons for Save, Reset and Cancel, where relevant, using the form state props provided by `redux-form`. Also add some simple client-side validation, e.g. making a field required and showing an error if user tries to submit without it.
 
 ### 5. Semantic UI: Make the UI look better with Semantic UI React
 
