@@ -295,7 +295,8 @@ Then check out any other resources you want or move on to the next part.
 Advanced usage includes handling asynchronous actions (e.g. to make API calls) and middleware, to handle side-effects of actions (e.g. logging actions or saving to localStorage).
 
 1.  [Offical advanced walkthrough](https://redux.js.org/advanced)
-2.  [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) video series
+2.  [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) free video series by the creator of Redux
+3. [Building Applications with React and Redux in ES6](https://www.pluralsight.com/courses/react-redux-react-router-es6) paid video series going through setup of environment, intro to React and Redux, connecting React & Redux, doing asynchronous things in Redux, testing and preparing for production
 3.  [Flux Standard Action](https://github.com/redux-utilities/flux-standard-action), which is a convention we follow for the action objects.
 4.  [Reselect](https://github.com/reactjs/reselect), a library for memoization of expensive state selectors.
 
