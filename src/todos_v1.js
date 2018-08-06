@@ -8,6 +8,7 @@ const {writeFile} = require("fs");
 
 
 const bodyParser = require('body-parser');
+// https://express-validator.github.io/docs/
 const expressValidator = require('express-validator');
 
 app.use(express.static('public'));
@@ -61,7 +62,7 @@ app.get('/todos/:id',fetchFile, (req, res, next) => {
         "date": "2018-08-11"
 }
 */
-app.post('/todos/',validate, (req, res, next) => {
+app.post('/todos/',fetchFile,validate, (req, res, next) => {
   const newTodo = req.body;
   newTodo.id = nextTodoId++;
   todos.push(newTodo);
@@ -72,7 +73,7 @@ app.post('/todos/',validate, (req, res, next) => {
 /*
  {"id": 5,"done":false, "todo":"walk 22 miles","date":"2018-07-25"}
 */
-app.put('/todos/:id', (req, res, next) => {
+app.put('/todos/:id',fetchFile, (req, res, next) => {
   const updatedTodo = req.body;
 
   if (req.todo.id !== updatedTodo.id) {
@@ -84,7 +85,7 @@ app.put('/todos/:id', (req, res, next) => {
   }
 });
 
-app.delete('/todos/:id', (req, res, next) => {
+app.delete('/todos/:id',fetchFile, (req, res, next) => {
   todos.splice(req.todoIndex, 1);
   writeToFile('todos.json',todos);
   res.status(204).send();
@@ -104,7 +105,7 @@ const getElementById = (id, elementList) => {
 function validate(req, res, next) {
 
   req.checkBody('todo','invalid todo' ).notEmpty();
-  req.checkBody('done', 'invalid done').notEmpty();
+  req.checkBody('done', 'invalid done').isBoolean();
   req.checkBody('date', 'invalid date').notEmpty();
 
   var errors = req.validationErrors();
