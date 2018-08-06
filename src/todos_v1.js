@@ -2,11 +2,10 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
-/*
+
 const {readFileSync} = require("fs");
-var fs = require('fs');
 const {writeFile} = require("fs");
-*/
+
 
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
@@ -21,7 +20,7 @@ if (!process.env.IS_TEST_ENV) {
 app.use(bodyParser.json());
 app.use(expressValidator());
 
-// let todos=[];
+//let todos=[];
 
 
 const todos = [
@@ -80,16 +79,15 @@ app.get('/todos/:id', (req, res, next) => {
 
 /*
  postman - POST, body+raw+JSON -> 
- {"todo": {"location":"at Frankies"}} eller
- {"todo": {"location":"at Frankies","date":"2018-07-25"} }
-
-
+ {
+        "too": "rest for 40 hours",
+        "done": false,
+        "date": "2018-08-11"
+}
 */
 app.post('/todos/',validate, (req, res, next) => {
-  console.log(req.body);
   const newTodo = req.body;
   newTodo.id = nextTodoId++;
-  // writeToFile("graffiti.txt",newTodo);
   todos.push(newTodo);
   res.send(newTodo);
 });
@@ -105,11 +103,6 @@ app.put('/todos/:id', (req, res, next) => {
     todos[req.todoIndex] = updatedTodo;
     res.send(todos[req.todoIndex]);
   }
-});
-
-// https://medium.com/@jeffandersen/building-a-node-js-rest-api-with-express-46b0901f29b6
-app.patch('/todos/:id', (req, res, next) => {
-
 });
 
 app.delete('/todos/:id', (req, res, next) => {
