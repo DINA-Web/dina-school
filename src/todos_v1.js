@@ -30,15 +30,13 @@ hanterar alltså 'put' och 'del' :
  app.put('/todos/:id'
  app.delete('/todos/:id'
 */
-
-
 app.param('id', (req, res, next, id) => {
   console.log('intercepting : id',id);
 
   const idToFind = Number(id);
   const rackIndex = todos.findIndex(todo => todo.id === idToFind);
   if (rackIndex !== -1) {
-    req.todo = todos[rackIndex]; // används i "/todos/:id"
+    req.todo = todos[rackIndex];
     req.todoIndex = rackIndex;
     next();
   } else {
@@ -122,9 +120,8 @@ function validate(req, res, next) {
   return next();
 }
 
-const todosFile='todos.json';
-
 function fetchFile(req, res, next) {
+  const todosFile='todos.json';
   let  file = readFileSync(todosFile, "utf8");
   todos = JSON.parse(file);
   return next();
@@ -137,10 +134,3 @@ const writeToFile = function(fileToWrite,chunk) {
       else console.log("written to file.");
   });
 } 
-
-/*
-const readFile = function(fileToRead) {
-  let  file = readFileSync(fileToRead, "utf8");
-  return JSON.parse(file);
-} 
-*/
