@@ -9,6 +9,7 @@ const {writeFile} = require("fs");
 */
 
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 
 app.use(express.static('public'));
 
@@ -18,6 +19,7 @@ if (!process.env.IS_TEST_ENV) {
 }
 
 app.use(bodyParser.json());
+app.use(expressValidator());
 
 // let todos=[];
 
@@ -83,7 +85,7 @@ app.get('/todos/:id', (req, res, next) => {
 
 
 */
-app.post('/todos/', (req, res, next) => {
+app.post('/todos/',validate, (req, res, next) => {
   console.log(req.body);
   const newTodo = req.body;
   newTodo.id = nextTodoId++;
@@ -105,6 +107,11 @@ app.put('/todos/:id', (req, res, next) => {
   }
 });
 
+// https://medium.com/@jeffandersen/building-a-node-js-rest-api-with-express-46b0901f29b6
+app.patch('/todos/:id', (req, res, next) => {
+
+});
+
 app.delete('/todos/:id', (req, res, next) => {
   todos.splice(req.todoIndex, 1);
   res.status(204).send();
@@ -121,6 +128,27 @@ const getElementById = (id, elementList) => {
     return element.id === Number(id);
   });
 };
+
+function validate(req, res, next) {
+  console.log("testing 1");
+
+  req.checkBody('todo','invalid todo' ).notEmpty();
+  req.checkBody('done', 'invalid done').notEmpty();
+  req.checkBody('date', 'invalid date').notEmpty();
+
+  var errors = req.validationErrors();
+  if (errors) {
+    var response = { errors: [] };
+    errors.forEach(function(err) {
+      response.errors.push(err.msg);
+    });
+
+    res.statusCode = 400;
+    return res.json(response);
+  }
+  console.log("testing 2"); 
+  return next();
+}
 
 // todos = readFile("todos.json");
 
