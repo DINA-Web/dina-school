@@ -27,13 +27,13 @@ let nextTodoId = 5;
 
 /*
 obs: första argument, variablen 'id' ska överenstämma med var i andra REST-sökvägar
-hanterar alltså 'put' och 'del' :  
+ hanterar dessa tre:  
  app.put('/todos/:id'
  app.delete('/todos/:id'
+ app.get('/todos/'
 */
 app.param('id', (req, res, next, id) => {
   console.log('intercepting : id',id);
-
   const idToFind = Number(id);
   const rackIndex = todos.findIndex(todo => todo.id === idToFind);
   if (rackIndex !== -1) {
@@ -101,6 +101,7 @@ const getElementById = (id, elementList) => {
     return element.id === Number(id);
   });
 };
+
 
 function validate(req, res, next) {
 
