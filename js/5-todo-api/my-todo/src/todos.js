@@ -48,9 +48,9 @@ function fetchFile(req, res, next) {
   return next()
 }
 
-function writeToFile(fileToWrite, chunk) {
+function writeToFile(chunk) {
   const json = JSON.stringify(chunk)
-  writeFile(fileToWrite, json, err => {
+  writeFile('todos.json', json, err => {
     if (err) log(`Failed to write file: ${err}`)
     else log('written to file.')
   })
@@ -100,8 +100,8 @@ app.post('/todos/', fetchFile, validate, (req, res) => {
   const newTodo = req.body
   newTodo.id = nextTodoId + 1
   todos.push(newTodo)
-  writeToFile('todos.json', todos)
-  res.send(newTodo)
+  writeToFile(todos)
+  res.status(201).send(newTodo)
 })
 
 /*
@@ -115,19 +115,40 @@ app.put('/todos/:id', fetchFile, checking, (req, res) => {
     res.status(400).send('Cannot update Todo Id')
   } else {
     todos[req.todoIndex] = updatedTodo
-    writeToFile('todos.json', todos)
-    res.send(todos[req.todoIndex])
+    writeToFile(todos)
+    res.status(201).send(todos[req.todoIndex])
   }
 })
-
+/*
+update only one attribute at a time, for instance '{"done": true}'
+*/
 app.patch('/todos/:id', fetchFile, checking, (req, res) => {
-  const { todos } = res.locals
+  const { todos } = res.locals // hämtar listan
+  const chosenTodo = todos[req.todoIndex]
+
+  const { body } = req
+
+  if (body.todo !== undefined) {
+    chosenTodo.todo = body.todo
+    todos[req.todoIndex].todo = body.todo
+  } else if (body.done !== undefined) {
+    chosenTodo.done = body.done
+    todos[req.todoIndex].done = body.done
+  } else if (body.date !== undefined) {
+    chosenTodo.date = body.date
+    todos[req.todoIndex].todo = body.date
+  }
+
+  // Ändra en och en, som rad 134, 137,140 eller såsom på rad 144 ?
+  // todos[req.todoIndex] = chosenTodo
+  writeToFile(todos)
+  res.status(201).send(chosenTodo) // ska hela returneras ?
 })
 
 app.delete('/todos/:id', fetchFile, checking, (req, res) => {
   const { todos } = res.locals
   todos.splice(req.todoIndex, 1)
-  writeToFile('todos.json', todos)
+  writeToFile(todos)
   res.status(204).send()
 })
 
