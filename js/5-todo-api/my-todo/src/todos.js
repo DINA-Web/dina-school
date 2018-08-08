@@ -42,14 +42,6 @@ function completeInputValidate(req, res, next) {
   return next()
 }
 
-/*
-function fetchFile(req, res, next) {
-  // decorateStoredTodos, decorateStoredTodosMiddleware
-  const file = readFileSync('todos.json', 'utf8')
-  res.locals.todos = JSON.parse(file)
-  return next()
-}
-*/
 function readTodosFromFile() {
   const file = readFileSync('todos.json', 'utf8')
   return JSON.parse(file)
@@ -68,21 +60,6 @@ function writeToFile(chunk) {
   })
 }
 
-/* döp om checking till decorateStoredTodo ....
-  Anton :
-  istället för:
-   req.todo = todos[rackIndex]
-   req.todoIndex = rackIndex
-   gör
-   req.locals.todo = todos[rackIndex]
-   req.locals.todoIndex = rackIndex 
-
-   ändra 
-  -- "res.locals.todos -> req.locals.todos" rättar till "res.locals och inte req.locals"
-  gör såhär på rad 98 -> const { totoInput, todos } = res.locals 
-  const { storedTodo, todos } = res.locals - i patch
-  */
-
 function checking(req, res, next) {
   const { todos } = res.locals
   const idToFind = Number(req.params.id)
@@ -92,7 +69,7 @@ function checking(req, res, next) {
     req.todoIndex = rackIndex
     next()
   } else {
-    res.status(404).send('That todo is Not Found.')
+    res.status(404).send('That todo is not found.')
   }
   return next()
 }
@@ -107,12 +84,12 @@ app.get('/todos/:id', decorateStoredTodosMiddleware, checking, (req, res) => {
 })
 
 /*
- postman - POST, body+raw+JSON -> 
- {
-        "too": "rest for 40 hours",
-        "done": false,
-        "date": "2018-08-11"
- }
+  A reminder on how to create a new todo from 'postman' (choose-> POST, body+raw+JSON ) 
+  {
+          "too": "rest for 40 hours",
+          "done": false,
+          "date": "2018-08-11"
+  }
 */
 app.post(
   '/todos/',
@@ -130,8 +107,15 @@ app.post(
 )
 
 /*
- {"id": 5,"done":false, "todo":"walk 22 miles","date":"2018-07-25"}
- const { storedTodo, todos } = res.locals
+  A reminder on how to update a todo from 'postman' (choose-> PUT, body+raw+JSON )
+  call : localhost:4001/todos/5 if you want to update index=5
+  Body is below: 
+    {
+      "id": 2,
+      "done": false,
+      "todo": "eat sallad",
+      "date": "2018-08-25"
+    }
 */
 app.put('/todos/:id', decorateStoredTodosMiddleware, checking, (req, res) => {
   const { todos } = res.locals
@@ -146,13 +130,16 @@ app.put('/todos/:id', decorateStoredTodosMiddleware, checking, (req, res) => {
   }
 })
 /*
-update only one attribute at a time, for instance '{"done": true}'
+  A reminder on how to patch a todo from 'postman' (choose-> PATCH, body+raw+JSON ) 
+  call : http://localhost:4001/todos/6 
+  only one attribute at a time: Body is below: 
+    {"done": true}
 */
 app.patch('/todos/:id', decorateStoredTodosMiddleware, checking, (req, res) => {
-  const { todos } = res.locals // 8 aug. har denna reda denna, har - se checking ...
-  const chosenTodo = todos[req.todoIndex] // 8 aug. se ovan ....
+  const { todos } = res.locals
+  const chosenTodo = todos[req.todoIndex]
 
-  const { body } = req // 8 aug. ändra
+  const { body } = req
 
   if (body.todo !== undefined) {
     chosenTodo.todo = body.todo
@@ -164,11 +151,8 @@ app.patch('/todos/:id', decorateStoredTodosMiddleware, checking, (req, res) => {
     chosenTodo.date = body.date
     todos[req.todoIndex].todo = body.date
   }
-
-  // Ändra en och en, som rad 134, 137,140 eller såsom på rad 144 ?
-  // todos[req.todoIndex] = chosenTodo
   writeToFile(todos)
-  res.status(201).send(chosenTodo) // ska hela returneras ?
+  res.status(201).send(chosenTodo)
 })
 
 app.delete(
