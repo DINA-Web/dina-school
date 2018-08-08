@@ -41,6 +41,7 @@ function completeInputValidate(req, res, next) {
   }
   return next()
 }
+// function partialInputValidate(req, res, next) {}
 
 function readTodosFromFile() {
   const file = readFileSync('todos.json', 'utf8')
@@ -52,7 +53,7 @@ function decorateStoredTodosMiddleware(req, res, next) {
   return next()
 }
 
-function writeToFile(chunk) {
+function saveTodos(chunk) {
   const json = JSON.stringify(chunk)
   writeFile('todos.json', json, err => {
     if (err) log(`Failed to write file: ${err}`)
@@ -101,7 +102,7 @@ app.post(
     const newTodo = req.body
     newTodo.id = nextTodoId + 1
     todos.push(newTodo)
-    writeToFile(todos)
+    saveTodos(todos)
     res.status(201).send(newTodo)
   }
 )
@@ -125,7 +126,7 @@ app.put('/todos/:id', decorateStoredTodosMiddleware, checking, (req, res) => {
     res.status(400).send('Cannot update Todo Id')
   } else {
     todos[req.todoIndex] = updatedTodo
-    writeToFile(todos)
+    saveTodos(todos)
     res.status(201).send(todos[req.todoIndex])
   }
 })
@@ -151,7 +152,7 @@ app.patch('/todos/:id', decorateStoredTodosMiddleware, checking, (req, res) => {
     chosenTodo.date = body.date
     todos[req.todoIndex].todo = body.date
   }
-  writeToFile(todos)
+  saveTodos(todos)
   res.status(201).send(chosenTodo)
 })
 
@@ -162,7 +163,7 @@ app.delete(
   (req, res) => {
     const { todos } = res.locals
     todos.splice(req.todoIndex, 1)
-    writeToFile(todos)
+    saveTodos(todos)
     res.status(204).send()
   }
 )
