@@ -175,7 +175,7 @@ app.patch(
 app.delete(
   '/todos/:id',
   decorateStoredTodosMiddleware,
-  checking,
+  decorateStoredTodo,
   (req, res) => {
     const { todos } = res.locals
     todos.splice(req.todoIndex, 1)
