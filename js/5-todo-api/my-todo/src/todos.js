@@ -43,18 +43,35 @@ function validate(req, res, next) {
 }
 
 function fetchFile(req, res, next) {
+  // decorateStoredTodos, decorateStoredTodosMiddleware
   const file = readFileSync('todos.json', 'utf8')
   res.locals.todos = JSON.parse(file)
   return next()
 }
 
 function writeToFile(chunk) {
+  // saveTodos ...
   const json = JSON.stringify(chunk)
   writeFile('todos.json', json, err => {
     if (err) log(`Failed to write file: ${err}`)
     else log('written to file.')
   })
 }
+
+/* döp om checking till decorateStoredTodo ....
+  Anton :
+  istället för:
+   req.todo = todos[rackIndex]
+   req.todoIndex = rackIndex
+   gör
+   req.locals.todo = todos[rackIndex]
+   req.locals.todoIndex = rackIndex 
+
+   ändra 
+  -- "res.locals.todos -> req.locals.todos" rättar till "res.locals och inte req.locals"
+  gör såhär på rad 98 -> const { totoInput, todos } = res.locals 
+  const { storedTodo, todos } = res.locals - i patch
+  */
 
 function checking(req, res, next) {
   const { todos } = res.locals
@@ -69,7 +86,7 @@ function checking(req, res, next) {
   }
   return next()
 }
-/*
+/* @Todo - inte skriva på svenska ...
 obs: första argument, variablen 'id' ska överenstämma med var i andra REST-sökvägar
  hanterar dessa tre:  
  app.put('/todos/:id'
@@ -92,7 +109,7 @@ app.get('/todos/:id', fetchFile, checking, (req, res) => {
         "too": "rest for 40 hours",
         "done": false,
         "date": "2018-08-11"
-}
+ }
 */
 app.post('/todos/', fetchFile, validate, (req, res) => {
   const { todos } = res.locals
@@ -106,6 +123,7 @@ app.post('/todos/', fetchFile, validate, (req, res) => {
 
 /*
  {"id": 5,"done":false, "todo":"walk 22 miles","date":"2018-07-25"}
+ const { storedTodo, todos } = res.locals
 */
 app.put('/todos/:id', fetchFile, checking, (req, res) => {
   const { todos } = res.locals
@@ -123,10 +141,10 @@ app.put('/todos/:id', fetchFile, checking, (req, res) => {
 update only one attribute at a time, for instance '{"done": true}'
 */
 app.patch('/todos/:id', fetchFile, checking, (req, res) => {
-  const { todos } = res.locals // hämtar listan
-  const chosenTodo = todos[req.todoIndex]
+  const { todos } = res.locals // 8 aug. har denna reda denna, har - se checking ...
+  const chosenTodo = todos[req.todoIndex] // 8 aug. se ovan ....
 
-  const { body } = req
+  const { body } = req // 8 aug. ändra
 
   if (body.todo !== undefined) {
     chosenTodo.todo = body.todo
