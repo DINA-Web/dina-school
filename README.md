@@ -346,3 +346,22 @@ Then browse through the available components in the [documentation](https://reac
 #### Task
 
 Rewrite your Todo app UI with Semantic UI components. At least use and configure (with props) the Grid, Header, Dropdown, Input, List and Button components.
+
+### 6. Build a blog: Use everything you have learned
+
+The goal of this assignment is to more freely build an application and consolidate the knowledge gained in the previous assignments. Below are the minimum functional requirements for the application, but feel free to play around. Whether to use a backend or not depends on the time available and the learning objectives for you.
+
+#### Public pages
+
+1. As a visitor, you can read what the blog is about
+1. As a visitor, you can find a list of all blog posts
+3. As a visitor, you can read each blog post on a page with a unique, human-readable URL
+4. As a visitor, you can go to the next and previous blog post from each blog post, based on their publishing date
+
+#### Admin interface
+
+1. As a user, you can login to the admin interface through a link on the landing page
+2. As a logged in user, you can create a new draft blog post
+3. As a logged in user, you can choose to publish drafts and unpublish posts
+4. As a logged in user, you can edit the content of existing drafts and posts
+5. As a logged in user, you can change some styling (at least font family, font size, text color, background color) of the published posts
