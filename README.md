@@ -1,4 +1,5 @@
 # DINA-School
+⛔️ This project is now archived - No Maintenance Intended
 
 Currently this repo is focused on learning and using JavaScript. Below follows a curriculum to learn the language, based on freely available online resources. The main ones are:
 
